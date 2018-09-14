@@ -1,0 +1,10 @@
+name: mrt_assay_app
+title:
+username:
+account: sfrenk
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 445614
+bundleId: 1585816
+url: https://sfrenk.shinyapps.io/mrt_assay_app/
+when: 1536937479.48095
