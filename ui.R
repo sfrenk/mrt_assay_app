@@ -16,11 +16,21 @@ shinyUI(pageWithSidebar(
                              "text/comma-separated-values,text/plain",
                              ".csv")),
         
+        # Optional censoring data
+        fileInput("file2", "Upload CSV containing censoring data (optional)",
+                  multiple = FALSE,
+                  accept = c("text/csv",
+                             "text/comma-separated-values,text/plain",
+                             ".csv")),
+        
         # Run button
         actionButton("go", "Go!"),
         
         # Download button
-        downloadButton("downloadData", "Download")
+        downloadButton("downloadData", "Download"),
+        
+        # Help
+        uiOutput("tab")
         
     ),
     

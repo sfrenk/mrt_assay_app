@@ -8,15 +8,22 @@ shinyServer(function(input, output, session) {
     myData <- eventReactive(input$go, {
         
         infile <- input$file1
+        censored <- input$file2
+        
         if (is.null(infile)) {
             # User has not uploaded a file yet
             return(NULL)
         }
-        df <- read.csv(infile$datapath)
+        df <- read.csv(infile$datapath, stringsAsFactors = FALSE)
         
         # Convert to mrt table
-        # TODO: Inlcude censoring data if present
-        df_mrt <- make_mrt_table(df)
+        # Inlcude censoring data if present
+        if (is.null(censored)) {
+            df_mrt <- make_mrt_table(df)
+        } else {
+            censored_df <- read.csv(censored$datapath, stringsAsFactors = FALSE)
+            df_mrt <- make_mrt_table(df, censored = censored_df)
+        }
         
         # Do stats
         results <- perform_logranks(df_mrt, correct = TRUE)
@@ -44,4 +51,9 @@ shinyServer(function(input, output, session) {
             write.csv(myData()[[2]], file, quote = FALSE)
         }
     )
+    
+    # Help link
+    output$tab <- renderUI({
+        url <- a("Help", href="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md")
+    })   
 })
