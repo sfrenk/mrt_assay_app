@@ -6,8 +6,7 @@
 
 Gives logrank test p-values for mrt assay data. The input file should be a csv with generation in the first column and number of fertile plates for each sample in subsequent columns. You can make the table in Excel as shown below and save as a csv:
 
-![excel snapshot]
-(https://github.com/sfrenk/mrt_assay_app/blob/master/images/excel_screenshot.png)
+![excel snapshot](images/excel_screenshot.png?raw=true)
 
 ## Censored data
 
