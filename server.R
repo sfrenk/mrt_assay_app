@@ -52,8 +52,19 @@ shinyServer(function(input, output, session) {
         }
     )
     
+    # Text that describes text
+    output$test_info <- renderText({
+        req(input$file1)
+        mrt_data <- myData()[[1]]
+        if (length(unique(mrt_data$sample)) > 2){
+            "Test: Pairwise longrank tests with Bonferroni correction"
+        } else {
+            "Test: Longrank test"
+        }
+    })
+    
     # Help link
-    output$tab <- renderUI({
-        url <- a("Help", href="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md")
-    })   
+    #output$help <- renderUI({
+    #    url <- a("Help", href="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md")
+    #})   
 })

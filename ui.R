@@ -30,7 +30,11 @@ shinyUI(pageWithSidebar(
         downloadButton("downloadData", "Download"),
         
         # Help
-        uiOutput("tab")
+        #uiOutput("help"),
+        actionButton(inputId='help', label="Help",
+                     onclick ="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md', '_blank')"),
+        # Test info
+        textOutput("test_info")
         
     ),
     
