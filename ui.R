@@ -23,16 +23,16 @@ shinyUI(pageWithSidebar(
                              "text/comma-separated-values,text/plain",
                              ".csv")),
         
-        # Run button
-        actionButton("go", "Go!"),
+        fluidRow(
+            # Run button
+            column(3, actionButton("go", "Go!")),
         
-        # Download button
-        downloadButton("downloadData", "Download"),
+            # Download button
+            column(6, downloadButton("downloadData", "Download")),
         
-        # Help
-        #uiOutput("help"),
-        actionButton(inputId='help', label="Help",
-                     onclick ="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md', '_blank')"),
+            # Help
+            column(3, uiOutput("help"))
+        ),
         # Test info
         textOutput("test_info")
         

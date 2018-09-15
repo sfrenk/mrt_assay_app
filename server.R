@@ -64,7 +64,7 @@ shinyServer(function(input, output, session) {
     })
     
     # Help link
-    #output$help <- renderUI({
-    #    url <- a("Help", href="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md")
-    #})   
+    output$help <- renderUI({
+        url <- a("Help", href="https://github.com/sfrenk/mrt_assay_app/blob/master/README.md")
+    })   
 })
